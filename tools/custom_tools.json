@@ -1,0 +1,82 @@
+[
+  {
+    "name": "get_weather",
+    "description": "Get the current weather for a location",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "The name of the city, e.g. London or New York"
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "celsius",
+            "fahrenheit"
+          ],
+          "description": "The temperature units"
+        }
+      },
+      "required": [
+        "city",
+        "units"
+      ]
+    }
+  },
+  {
+    "name": "get_sys_time",
+    "description": "Get the current local system time",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "format_12hr": {
+          "type": "boolean",
+          "description": "Whether to return the time in 12-hour format with AM/PM (true) or 24-hour format (false). Defaults to false."
+        }
+      },
+      "required": []
+    }
+  },
+  {
+    "name": "set_alarm",
+    "description": "Set a daily alarm",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "hour": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        },
+        "minute": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 59
+        },
+        "label": {
+          "type": "string",
+          "description": "A short label for the alarm"
+        }
+      },
+      "required": [
+        "hour",
+        "minute"
+      ]
+    }
+  },
+  {
+    "name": "take_screenshot",
+    "description": "Takes a screenshot of the main screen and saves it to the user's Desktop",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "description": "Optional custom filename for the screenshot (e.g. desktop.png). If omitted, a timestamped name will be used."
+        }
+      },
+      "required": []
+    }
+  }
+]
